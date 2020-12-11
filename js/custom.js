@@ -65,13 +65,15 @@ $(function () {
         } else {
             // $("#scrollmagic_main").remove();
             // $("#scrollmagic, #gsap, #animation-gsap,#jquery-scroll,#scrollmagic_main").remove();
-            $(window).on('resize', function () {
+            $(window).on('change', function () {
                 function refreshPageUnlessFocusedOn(el) {
+                    if (x.match){
                     setInterval(function () {
                         if (el !== document.activeElement) {
                             document.location.reload();
                         }
                     }, 2000)
+                }
                 }
                 refreshPageUnlessFocusedOn();
             });

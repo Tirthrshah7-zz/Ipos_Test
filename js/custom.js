@@ -81,5 +81,5 @@ $(function () {
 
     var x = window.matchMedia("(min-width: 992px)")
     myFunction(x) // Call listener function at run time
-    x.addEventListener("resize", myFunction, false);
+    x.addEventListener("change touchmove", myFunction, false);
 });

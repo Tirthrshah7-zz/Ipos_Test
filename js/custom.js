@@ -24,14 +24,4 @@
 // });
 
 
-$(window).on('resize', function () {
-    function refreshPageUnlessFocusedOn(el) {
-        setInterval(function () {
-            if (el !== document.activeElement) {
-                document.location.reload();
-            }
-        }, 1000)
-    }
-    refreshPageUnlessFocusedOn();
-});
 

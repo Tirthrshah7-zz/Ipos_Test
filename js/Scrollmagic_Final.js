@@ -663,10 +663,33 @@ $(function () {
                     images_sequenece(images, filename, frameCount, init);
                 });
               
+                $(window).on('resize', function () {
+                    function refreshPageUnlessFocusedOn(el) {
+                        setInterval(function () {
+                            if (el !== document.activeElement) {
+                                console.log("refreshh")
+                                document.location.reload();
+                            }
+                        }, 4000)
+                    }
+                    refreshPageUnlessFocusedOn();
+                });
+                
             });
         }
         else {
             // resize function 
+            $(window).on('resize touchmove', function () {
+                function refreshPageUnlessFocusedOn(el) {
+                        if (el !== document.activeElement && window.innerWidth > 992) {
+                            
+                            document.location.reload();
+                        }
+                }
+                refreshPageUnlessFocusedOn();
+                console.log("refreshhss")
+            });
+            
            
         }
     };

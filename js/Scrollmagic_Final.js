@@ -1,7 +1,7 @@
 function sunny() {
     var document_width, document_height;
     function mediaSize() {
-        if (window.matchMedia('(min-width: 993px)').matches) {
+        if (window.matchMedia('(min-width: 992px)').matches) {
             $(function () {
                 // global function 
 
@@ -290,6 +290,7 @@ function sunny() {
                     var filename = index => (
                         `ipos_images/images_sequenece/Part-2/${index.toString().padStart(0, '0')}.png`
                     )
+                    
                     const frameCount = 33;
                     var intro = document.querySelector(".part-2");
 

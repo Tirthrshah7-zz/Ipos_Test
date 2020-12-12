@@ -680,7 +680,7 @@ $(function () {
             });
         }
         else {
-                    if (el !== document.activeElement && window.innerWidth <= 992.92) {
+                    if ( window.innerWidth <= 992.92) {
                             document.location.reload();
                         }
                

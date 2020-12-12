@@ -288,7 +288,7 @@ function sunny() {
                 $(function () {
                     var images = new Array();
                     var filename = index => (
-                        `ipos_images/images_sequenece/Part-2/${index.toString().padStart(0, '0')}.png`
+                        `ipos_images/images_sequenece/part-2/${index.toString().padStart(0, '0')}.png`
                     )
                     
                     const frameCount = 33;

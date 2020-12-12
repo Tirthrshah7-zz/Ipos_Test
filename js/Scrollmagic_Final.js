@@ -1,4 +1,5 @@
 $(function () {
+    var document_width, document_height;
     function mediaSize() {
         if (window.matchMedia('(min-width: 993px)').matches) {
             $(function () {
@@ -662,30 +663,44 @@ $(function () {
                     }
                     images_sequenece(images, filename, frameCount, init);
                 });
-              
+
+                // $(window).on('change', function () {
+                //     function refreshPageUnlessFocusedOn(el) {
+                //         if (el !== document.activeElement) {
+                //             // console.log("refreshh")
+                //             alert("resize -if");
+                //             location.reload();
+                //         }
+                //     }
+                //     refreshPageUnlessFocusedOn();
+                // });
                 $(window).on('resize', function () {
-                    function refreshPageUnlessFocusedOn(el) {
-                       
-                            if (el !== document.activeElement) {
-                                console.log("refreshh")
-                                alert("resize -if");
-                                document.location.reload();
-                            }
-                        
-                            alert("resize outside -if ");
+                    if (document_width != $(document).width() || document_height != $(document).height()) {
+                        document_width = $(document).width(); document_height = $(document).height();
+                        console.log("sunny")
+                        location.reload()
+                        // Do something
                     }
-                    refreshPageUnlessFocusedOn();
-                });
-                
+                    // if(window.innerWidth < 991){
+                    //     location.reload();
+                    // }
+                })
+
             });
         }
         else {
-                    if ( window.innerWidth <= 992.92) {
-                            document.location.reload();
-                        }
-               
-        }
-    };
+            $(window).on('resize', function () {
+                if (document_width != $(document).width() || document_height == $(document).height()) {
+                
+                    alert("else if")
+                    location.reload()
+                }
+                // if(window.innerWidth < 991){
+                //     location.reload();
+                // }
+            })
+        };
+    }
     mediaSize();
+    window.addEventListener('resize', mediaSize, false);
 });
-

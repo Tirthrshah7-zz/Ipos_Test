@@ -679,16 +679,16 @@ $(function () {
         }
         else {
             // resize function 
-            $(window).on('resize touchmove', function () {
-                function refreshPageUnlessFocusedOn(el) {
-                        if (el !== document.activeElement && window.innerWidth > 992) {
+            // $(window).on('resize touchmove', function () {
+            //     function refreshPageUnlessFocusedOn(el) {
+            //             if (el !== document.activeElement && window.innerWidth > 992) {
                             
-                            document.location.reload();
-                        }
-                }
-                refreshPageUnlessFocusedOn();
-                console.log("refreshhss")
-            });
+            //                 document.location.reload();
+            //             }
+            //     }
+            //     refreshPageUnlessFocusedOn();
+            //     console.log("refreshhss")
+            // });
             
            
         }

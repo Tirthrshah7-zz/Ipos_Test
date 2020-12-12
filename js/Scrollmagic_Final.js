@@ -680,16 +680,10 @@ $(function () {
             });
         }
         else {
-            $(window).on('resize', function () {
-                function refreshPageUnlessFocusedOn(el) {
-                        if (el !== document.activeElement) {
+                    if (el !== document.activeElement && window.innerWidth <= 992.92) {
                             document.location.reload();
-                            document.body.style.background ="red";
                         }
-                }
-
-                refreshPageUnlessFocusedOn();
-            });
+               
         }
     };
     mediaSize();

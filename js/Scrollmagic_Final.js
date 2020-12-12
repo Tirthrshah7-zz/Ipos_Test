@@ -501,7 +501,6 @@ $(function () {
                         var anim = { frame: 0 };
 
                         var tween = new TimelineMax()
-                            .add(TweenMax.to(customer_display, 0.4, { y: "-70px", ease: Power4.easeOut }))
                             .add(TweenMax.to(anim, 1, {
                                 frame: images.length - 1,  // animate propery frame to number of images
                                 roundProps: "frame",       // only integers so it can be used as an array index
@@ -514,7 +513,7 @@ $(function () {
                         var scene = new ScrollMagic.Scene({
                             duration: "300%",
                             triggerElement: customer_display,
-                            triggerHook: 0.07,
+                            triggerHook: 0.04,
                         })
                         scene.setTween(tween).setPin(customer_display).on('progress', function () {
                             type(myText, myTextLength, scene, ".cut_display_text")
@@ -663,22 +662,25 @@ $(function () {
                     }
                     images_sequenece(images, filename, frameCount, init);
                 });
-
-
-                // resize function 
-                $(window).on('resize', function () {
-                    function refreshPageUnlessFocusedOn(el) {
-                        setInterval(function () {
-                            if (el !== document.activeElement) {
-                                document.location.reload();
-                            }
-                        }, 1000)
-                    }
-                    refreshPageUnlessFocusedOn();
-                });
+                // $(window).on('resize', function () {
+                //     function refreshPageUnlessFocusedOn(el) {
+                //         setInterval(function () {
+                //             if (el !== document.activeElement) {
+                //                 // document.location.reload();
+                //                 // controller.update(false);
+                                
+                //             }
+                //         }, 1000)
+                //     }
+                //     refreshPageUnlessFocusedOn();
+                // });
             });
+        }
+        else {
+            // resize function 
+           
         }
     };
     mediaSize();
-
 });
+

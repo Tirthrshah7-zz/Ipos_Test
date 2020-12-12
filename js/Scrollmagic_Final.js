@@ -691,9 +691,15 @@ $(function () {
         else {
             $(window).on('resize', function () {
                 if (document_width != $(document).width()) {
-                
-                    alert("else if")
-                    location.reload()
+                    if($(window).off('scroll')){
+                        location.reload(0)
+                    }
+                    else{
+                        location.reload()
+                        alert("else if")
+                    }
+                    
+                    
                 }
                 // if(window.innerWidth < 991){
                 //     location.reload();

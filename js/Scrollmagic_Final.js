@@ -690,7 +690,7 @@ $(function () {
         }
         else {
             $(window).on('resize', function () {
-                if (document_width != $(document).width() || document_height == $(document).height()) {
+                if (document_width != $(document).width()) {
                 
                     alert("else if")
                     location.reload()

@@ -678,7 +678,8 @@ $(function () {
                     if (document_width != $(document).width() || document_height != $(document).height()) {
                         document_width = $(document).width(); document_height = $(document).height();
                         console.log("sunny")
-                        location.reload()
+                        
+                        alert("sunny")
                         // Do something
                     }
                     // if(window.innerWidth < 991){
@@ -689,15 +690,15 @@ $(function () {
             });
         }
         else {
-            $(window).on('resize', function () {
+            $(window).on('resize touchmove', function () {
                 if (document_width != $(document).width()) {
-                    if($(window).off('scroll')){
-                        location.reload(0)
-                    }
-                    else{
+                    // if($(window).off('scroll')){
+                    //     location.reload()
+                    // }
+                    
                         location.reload()
                         alert("else if")
-                    }
+                    
                     
                     
                 }

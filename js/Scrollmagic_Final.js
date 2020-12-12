@@ -690,24 +690,37 @@ $(function () {
             });
         }
         else {
-            $(window).on('resize touchmove', function () {
-                if (document_width != $(document).width()) {
-                    // if($(window).off('scroll')){
-                    //     location.reload()
-                    // }
+
+            var dwidth = $(window).width();
+
+$(window).on("resize",function(){
+    var wwidth = $(window).width();
+    if(dwidth!==wwidth){
+         dwidth = $(window).width();
+         console.log('Width changed');
+         location.reload();
+    }
+});
+            // $(window).on('resize', function () {
+            //     // if (document_width != $(document).width()) {
+            //     //     // if($(window).off('scroll')){
+            //     //     //     location.reload()
+            //     //     // }
                     
-                        location.reload()
-                        alert("else if")
+            //     //         location.reload()
+            //     //         alert("else if")
                     
                     
                     
-                }
-                // if(window.innerWidth < 991){
-                //     location.reload();
-                // }
-            })
+            //     // }
+            //     // if(window.innerWidth < 991){
+            //     //     location.reload();
+            //     // }
+
+            // })
         };
     }
     mediaSize();
     window.addEventListener('resize', mediaSize, false);
 });
+

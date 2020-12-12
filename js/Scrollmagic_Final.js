@@ -1,4 +1,4 @@
-$(function () {
+function sunny() {
     var document_width, document_height;
     function mediaSize() {
         if (window.matchMedia('(min-width: 993px)').matches) {
@@ -7,7 +7,6 @@ $(function () {
 
                 // init controller
                 var controller = new ScrollMagic.Controller();
-
                 // ImagesSequence Loop
                 function images_sequenece(images, filename, frameCount, callback) {
                     var cnt = 0;
@@ -664,63 +663,35 @@ $(function () {
                     images_sequenece(images, filename, frameCount, init);
                 });
 
-                // $(window).on('change', function () {
-                //     function refreshPageUnlessFocusedOn(el) {
-                //         if (el !== document.activeElement) {
-                //             // console.log("refreshh")
-                //             alert("resize -if");
-                //             location.reload();
-                //         }
-                //     }
-                //     refreshPageUnlessFocusedOn();
-                // });
                 $(window).on('resize', function () {
                     if (document_width != $(document).width() || document_height != $(document).height()) {
-                        document_width = $(document).width(); document_height = $(document).height();
-                        console.log("sunny")
-                        
-                        alert("sunny")
-                        // Do something
+                        location.reload();
                     }
-                    // if(window.innerWidth < 991){
-                    //     location.reload();
-                    // }
                 })
-
             });
         }
         else {
-
             var dwidth = $(window).width();
-
-$(window).on("resize",function(){
-    var wwidth = $(window).width();
-    if(dwidth!==wwidth){
-         dwidth = $(window).width();
-         console.log('Width changed');
-         location.reload();
-    }
-});
-            // $(window).on('resize', function () {
-            //     // if (document_width != $(document).width()) {
-            //     //     // if($(window).off('scroll')){
-            //     //     //     location.reload()
-            //     //     // }
-                    
-            //     //         location.reload()
-            //     //         alert("else if")
-                    
-                    
-                    
-            //     // }
-            //     // if(window.innerWidth < 991){
-            //     //     location.reload();
-            //     // }
-
-            // })
+            // console.log(dwidth);
+            $(window).on("resize", function () {
+                var wwidth = $(window).width();
+                // console.log(wwidth);
+                if (dwidth !== wwidth) {
+                    dwidth = $(window).width();
+                }
+            });
         };
     }
     mediaSize();
     window.addEventListener('resize', mediaSize, false);
-});
+};
 
+const classList = document.querySelector(".main-content");
+const classLength = classList.length;
+if (classLength != 0) {
+    // console.log("Element found with the specified class name");
+    sunny();
+} else {
+
+    // console.log("No element found with the specified class name");
+}

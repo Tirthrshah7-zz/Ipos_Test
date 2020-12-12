@@ -662,18 +662,7 @@ $(function () {
                     }
                     images_sequenece(images, filename, frameCount, init);
                 });
-                // $(window).on('resize', function () {
-                //     function refreshPageUnlessFocusedOn(el) {
-                //         setInterval(function () {
-                //             if (el !== document.activeElement) {
-                //                 // document.location.reload();
-                //                 // controller.update(false);
-                                
-                //             }
-                //         }, 1000)
-                //     }
-                //     refreshPageUnlessFocusedOn();
-                // });
+              
             });
         }
         else {

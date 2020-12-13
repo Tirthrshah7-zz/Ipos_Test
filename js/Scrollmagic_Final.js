@@ -678,7 +678,7 @@ function sunny() {
                 var wwidth = $(window).width();
                 // console.log(wwidth);
                 if (dwidth !== wwidth) {
-                    dwidth = $(window).width();
+                    location.reload(1)
                 }
             });
         };
@@ -693,6 +693,5 @@ if (classLength != 0) {
     // console.log("Element found with the specified class name");
     sunny();
 } else {
-
     // console.log("No element found with the specified class name");
 }

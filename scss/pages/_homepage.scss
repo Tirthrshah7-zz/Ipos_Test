@@ -11,6 +11,12 @@
         @include respondMax(xxl-full-desktop) {
             width: 200px;
         }
+        @include respondMax(hd-desktop){
+            width: 180px;
+        }
+        @include respondMax(sm-phone){
+            width: 145px;
+        }
     }
 
     .modifier1 {
@@ -31,6 +37,12 @@
         }
     }
     & .station-sec {
+        .title-content{
+           
+            @include respondMin(md-tab){
+                max-width: 1140px;
+            }
+        }
         .station-title {
             @include respondMax(hd-desktop) {
                 font-size: 2.6875rem; //43px
@@ -83,7 +95,7 @@
         }
     }
     & .kitchen_sec_title {
-        top: -10%;
+        top: -14%;
         position: absolute;
         left: 0;
         @include respondMax(lg-desktop) {

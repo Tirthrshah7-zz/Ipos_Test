@@ -1,4 +1,4 @@
-function sunny() {
+function Ipos() {
     var document_width, document_height;
     function mediaSize() {
         if (window.matchMedia('(min-width: 992px)').matches) {
@@ -96,7 +96,7 @@ function sunny() {
                         // typing effect
                         var myText = " Secure login using Facial ID ";
                         let myTextLength = myText.length;
-                        var audioElement = document.querySelector('#sunny');
+                        var audioElement = document.querySelector('#Ipos');
                         // audioElement.setAttribute('src', 'audio/notification.mp3');
 
 
@@ -128,7 +128,7 @@ function sunny() {
                                 type(myText, myTextLength, scene, ".face-text");
                             })
                             .on('leave', function () {
-                                var beepOne = $("#sunny")[0];
+                                var beepOne = $("#Ipos")[0];
 
                                 $(function () {
                                     beepOne.play();
@@ -400,7 +400,7 @@ function sunny() {
 
                     const frameCount = 57;
 
-                    var introsssss = document.querySelector("#eats-max");
+                    var introsssss = document.querySelector(".eats-max-sec");
                     function init() {
                         var anim = { frame: 0 };
                         var myText = " your valued clients which is truly free of fees";
@@ -452,7 +452,7 @@ function sunny() {
                     )
 
                     const frameCount = 35;
-                    var introsssss = document.querySelector("#eats_Website");
+                    var introsssss = document.querySelector(".eats_Website-sec");
 
                     function init() {
 
@@ -514,7 +514,7 @@ function sunny() {
                         var scene = new ScrollMagic.Scene({
                             duration: "300%",
                             triggerElement: customer_display,
-                            triggerHook: 0.04,
+                            triggerHook: 0.02,
                         })
                         scene.setTween(tween).setPin(customer_display).on('progress', function () {
                             type(myText, myTextLength, scene, ".cut_display_text")
@@ -592,7 +592,7 @@ function sunny() {
                         `ipos_images/images_sequenece/mobile_payment_new/${index.toString().padStart(0, '0')}.png`
                     )
                     const frameCount = 30;
-                    var payment = document.querySelector("#mobile_payment_new");
+                    var payment = document.querySelector(".payment_mobile");
                     function init() {
                         var anim = { frame: 0 };
                         var tween = new TimelineMax()
@@ -632,7 +632,7 @@ function sunny() {
                         `ipos_images/images_sequenece/qr_code/${index.toString().padStart(0, '0')}.png`
                     )
                     const frameCount = 35;
-                    var qr = document.querySelector("#qr_code");
+                    var qr = document.querySelector(".qr_code");
                     function init() {
                         var anim = { frame: 0 };
                         var myText = " My iPos is the solution got you covered.";
@@ -691,7 +691,7 @@ const classList = document.querySelector(".main-content");
 const classLength = classList.length;
 if (classLength != 0) {
     // console.log("Element found with the specified class name");
-    sunny();
+    Ipos();
 } else {
     // console.log("No element found with the specified class name");
 }

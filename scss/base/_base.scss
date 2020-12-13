@@ -13,10 +13,12 @@ html{
 }
 
 body {
-    // font-family: 'SF Pro Text';
-    font-family: 'SF Pro Display' !important;
-    color:$color-white;
+    font-family: 'SF Pro Text';
+    font-size:19px;
+    color:#1d1d1f;
     font-weight: normal;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    padding:0;
+    margin:0;
 }
+
+

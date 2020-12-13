@@ -61,7 +61,7 @@ function sunny() {
                                     $(".station-img").attr("src", images[anim.frame].src); // set the image source
                                 }
                             }));
-
+                        
                         // new Scene 
                         var scene = new ScrollMagic.Scene({
                             duration: "200%",

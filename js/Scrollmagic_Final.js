@@ -666,7 +666,7 @@ function sunny() {
 
                 $(window).on('resize', function () {
                     if (document_width != $(document).width() || document_height != $(document).height()) {
-                        location.reload();
+                        location.reload(1);
                     }
                 })
             });
@@ -678,7 +678,7 @@ function sunny() {
                 var wwidth = $(window).width();
                 // console.log(wwidth);
                 if (dwidth !== wwidth) {
-                    location.reload(1)
+                    location.reload(0)
                 }
             });
         };

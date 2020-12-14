@@ -128,11 +128,11 @@ function Ipos() {
                                 type(myText, myTextLength, scene, ".face-text");
                             })
                             .on('leave', function () {
-                                var beepOne = $("#Ipos")[0];
+                                // var beepOne = $("#Ipos")[0];
 
-                                $(function () {
-                                    beepOne.play();
-                                });
+                                // $(function () {
+                                //     beepOne.play();
+                                // });
                             })
                             .addTo(controller);
                     }

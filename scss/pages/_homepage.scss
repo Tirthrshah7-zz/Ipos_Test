@@ -120,10 +120,18 @@
             }
         }
         & .eats_text {
-            & .p {
+            & .eats_m0b_para {
+                @include respondMin(lg-desktop){
                 position: absolute;
                 left: 0;
                 opacity: 0;
+                }
+                @include respondMax(lg-desktop){
+                    font-size: 1.25rem; //20px
+                }
+                @include respondMax(sm-phone){
+                    font-size: 1.125rem; //18px
+                }
             }
         }
     }

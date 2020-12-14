@@ -98,6 +98,9 @@
         top: -14%;
         position: absolute;
         left: 0;
+        @include respondMin(xxl-full-desktop){
+            top: -20%;
+        }
         @include respondMax(lg-desktop) {
             position: relative;
             top: 0;

@@ -616,7 +616,7 @@ p {
 	}
 }
 .sub-inner-title {
-	@include respondMax(hd-desktop) {
+	@include respondMax(xxl-full-desktop) {
 		font-size: 1.5rem; //24px
 	}
 	@include respondMax(sm-phone) {

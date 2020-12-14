@@ -379,7 +379,7 @@ function Ipos() {
                                 }
                             }));
                         var scene = new ScrollMagic.Scene({
-                            duration: 3000,
+                            duration: "200%",
                             triggerElement: introssssss,
                             triggerHook: 0,
                         })
@@ -422,7 +422,7 @@ function Ipos() {
                             // .add(TweenMax.fromTo(".p2p", 1.2, { opacity: 1, y: "100px" }, { opacity: 0, y: "0", ease: Power4.easeNone }, "+1.1"))
                             // .add(TweenMax.fromTo(".p3p", 1.3, { opacity: 1, y: "100px" }, { opacity: 0, y: "0", ease: Power4.easeNone }, "+1.2"))
                             // .add(TweenMax.fromTo(".p4p", 1.4, { opacity: 1, y: "100px" }, { opacity: 0, y: "0", ease: Power4.easeNone }, "+1.3"))
-                            .add(TweenMax.fromTo(".p5p", 1.5, { opacity: 1, y: "100px" }, { opacity: 1, y: "0", ease: Power4.easeNone }, "+1.3"))
+                            .add(TweenMax.fromTo(".p5p", 1.5, { opacity: 0, y: "100px" }, { opacity: 1, y: "0", ease: Power4.easeNone }, "+1.3"))
 
 
                         var scene = new ScrollMagic.Scene({
@@ -611,7 +611,7 @@ function Ipos() {
                         }
 
                         var scene = new ScrollMagic.Scene({
-                            duration: "300%",
+                            duration: "250%",
                             triggerElement: payment,
                             triggerHook: 0.01,
                         })
@@ -647,11 +647,10 @@ function Ipos() {
                                     $(".qr_code").attr("src", images[anim.frame].src); // set the image source
                                 }
                             }))
-                            .add(TweenMax.fromTo(".QR-img", 1, { y: "-50px" }, { y: "-50px", ease: Power1.easeOut }));
                         var scene = new ScrollMagic.Scene({
                             duration: "200%",
                             triggerElement: qr,
-                            triggerHook: 0.05,
+                            triggerHook: 0.1,
                         })
                         scene.on('progress', function () {
                             type(myText, myTextLength, scene, ".qr_text");

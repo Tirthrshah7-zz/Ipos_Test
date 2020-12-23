@@ -204,7 +204,7 @@ function Ipos() {
 						scrollTrigger: {
 							trigger: kitchne,
 							scrub: 1,
-							start: "top",
+							start: "top top",
 							end: "+=5000",
 							pin: true,
 							onUpdate: self => {

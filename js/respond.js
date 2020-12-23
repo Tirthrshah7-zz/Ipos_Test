@@ -94,7 +94,7 @@ function Ipos() {
 						scrollTrigger: {
 							trigger: face_id,
 							scrub: 0.5,
-							start: "top top",
+							start: "top 20%",
 							end: "+=500%",
 							pin: true,
 							pinSpacing: true,
@@ -159,8 +159,8 @@ function Ipos() {
 							trigger: kitchne,
 							scrub: 0.5,
 							markers: true,
-							start: "top top",
-							end: "+=4000 center",
+							start: "top",
+							end: "+=4000 ",
 							pin: true,
 							onUpdate: self => {
 								type(myText, self, ".k_break");

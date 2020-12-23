@@ -190,7 +190,7 @@ function Ipos() {
 			});
 
 
-			// kitchne id
+			//kitchne id
 			$(function () {
 				var kitchen_img = new Array();
 				var kitchen_frame = index => (
@@ -204,8 +204,8 @@ function Ipos() {
 						scrollTrigger: {
 							trigger: kitchne,
 							scrub: 1,
-							start: "top top",
-							end: "6000",
+							start: "top",
+							end: "+=5000",
 							pin: true,
 							onUpdate: self => {
 								type(myText, self, ".k_break");
@@ -229,7 +229,7 @@ function Ipos() {
 					var ts = gsap.timeline({
 						scrollTrigger: {
 							trigger: part1,
-							scrub: 0.5,
+							scrub: 1,
 							start: "top 19%",
 							pin: true
 						}
@@ -299,7 +299,7 @@ function Ipos() {
 						scrollTrigger: {
 							trigger: introssss,
 							scrub: 1,
-							start: "top top",
+							start: "top",
 							end: "+=4000",
 							pin: true,
 							reverse: true
@@ -324,8 +324,8 @@ function Ipos() {
 						scrollTrigger: {
 							trigger: introsssss,
 							scrub: 1,
-							start: "top top",
-							end: "+=5500 center",
+							start: "top",
+							end: "+=5500",
 							pin: true,
 							reverse: true,
 							onUpdate: self => {
@@ -354,7 +354,7 @@ function Ipos() {
 							trigger: introsssss,
 							scrub: 1,
 							start: "top 3%",
-							end: "+=4000",
+							end: "+=500%",
 							pin: true,
 							onUpdate: self => {
 								type(myText, self, ".eats_website");
@@ -408,7 +408,7 @@ function Ipos() {
 							scrub: 1,
 							pin: true,
 							top: "top 20%",
-							end: "3000 bottom"
+							end: "+=3000"
 						}
 					});
 					frame_images(".new_way", new_ways, ts)
@@ -430,10 +430,9 @@ function Ipos() {
 							trigger: imenu,
 							scrub: 1,
 							markers: true,
-							start: "top top",
-							end: "4500",
+							start: "top",
+							end: "+=5000",
 							pin: true,
-							reverse: true,
 						}
 					});
 					frame_images(".imenu", imenu_img, ts)
@@ -455,7 +454,7 @@ function Ipos() {
 							trigger: payment,
 							scrub: 1,
 							start: "top",
-							end: "4000",
+							end: "+=4000",
 							pin: true,
 						}
 					});
@@ -484,7 +483,7 @@ function Ipos() {
 							trigger: qr,
 							scrub: 1,
 							start: "top",
-							end: "4000",
+							end: "+=4000",
 							pin: true,
 							onUpdate: self => {
 								type(myText, self, ".qr_text");

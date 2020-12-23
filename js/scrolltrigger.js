@@ -1,9 +1,12 @@
+
 function Ipos() {
 	var document_width, document_height;
 	function mediaSize() {
 		if (window.matchMedia('(min-width: 992px)').matches) {
-			// ImagesSequence Loop
 
+			gsap.registerPlugin(ScrollTrigger);
+
+			// ImagesSequence Loop
 			function images_sequenece(images, filename, frameCount, callback) {
 				var cnt = 0;
 				for (var i = 0; i < frameCount; i++) {
@@ -49,100 +52,143 @@ function Ipos() {
 
 			}
 
-			//station  id
+			function render(canvas, images, airpods) {
+				var context = canvas.getContext("2d");
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				context.drawImage(images[airpods.frame], 0, 0, canvas.width, canvas.height);
+			}
+
+			function canvas_images(images, frameCount, currentFrame, canvas, ts) {
+				const airpods = {
+					frame: 0
+				}
+				for (let i = 0; i < frameCount; i++) {
+					const img = new Image();
+					img.src = currentFrame(i);
+					images.push(img);
+				}
+				ts.to(airpods, {
+					frame: frameCount - 1,
+					snap: "frame",
+					roundProps: "frame",       // only integers so it can be used as an array index
+					immediateRender: true,    // load first image automatically
+					ease: Linear.easeNone,
+					onUpdate: () => {
+						render(canvas, images, airpods)
+					}
+				})
+				images[0].onload = () => {
+					render(canvas, images, airpods);
+				}
+			}
+
+			// face id
 			$(function () {
-				var station_img = new Array();
-				var filename = index => (
+				var images = new Array();
+				var canvas = document.getElementById("hero-lightpass2");
+				canvas.width = 814;
+				canvas.height = 764;
+				var frameCount = 24;
+				const currentFrame = index => (
 					`ipos_images/images_sequenece/station/${index.toString().padStart(0, '0')}.png`
-				)
-				const frameCount = 25;
-				var intro = document.querySelector(".station_items_img");
-				function init() {
-					var ts = gsap.timeline({
-						scrollTrigger: {
-							trigger: intro,
-							scrub: true,
-							start: "top top",
-							end: "+=550% center",
-							pin: true,
-							markers: true,
-							toggleClass: 'enable'
-
-						}
-					});
-					frame_images(".station-img", station_img, ts);
-				}
-				images_sequenece(station_img, filename, frameCount, init);
+				);
+				var ts = gsap.timeline({
+					scrollTrigger: {
+						trigger: ".station_items_img",
+						scrub: 1,
+						start: "top",
+						end: "+=5000",
+						pin: true,
+						toggleClass: "station_new"
+					}
+				})
+				canvas_images(images, frameCount, currentFrame, canvas, ts)
 			});
 
-			//face id
+			// face id
 			$(function () {
-				var face_ids = new Array();
-				var filename = index => (
+				var images = new Array();
+				var canvas = document.getElementById("hero-lightpass1");
+				canvas.width = 813;
+				canvas.height = 713;
+				var frameCount = 25;
+				const currentFrame = index => (
 					`ipos_images/images_sequenece/face_id/${index.toString().padStart(0, '0')}.png`
-				)
-				const frameCount = 25;
-				var face_id = document.querySelector(".face-scanner");
-				function init() {
-					const SOUNDS = {
-						CAP: new Audio(
-							'https://s3-us-west-2.amazonaws.com/s.cdpn.io/605876/cap-gun.mp3'
-						),
+				);
+				var myText = " A Simple Workflow that can be Used with minimal or no training.";
+				var ts = gsap.timeline({
+					scrollTrigger: {
+						trigger: ".face-scanner",
+						scrub: 1,
+						start: "top",
+						end: "+=5000",
+						pin: true,
+						onUpdate: self => {
+							type(myText, self, ".face-text");
+						},
 					}
-					var myText = " Secure login using Facial ID ";
-					var ts = gsap.timeline({
-						scrollTrigger: {
-							trigger: face_id,
-							scrub: 0.5,
-							start: "top top",
-							end: "+=500%",
-							pin: true,
-							pinSpacing: true,
-							onUpdate: self => {
-								type(myText, self, ".face-text");
-							},
-							onLeave: () => {
-								SOUNDS.CAP.play()
-							}
-						}
-					});
-					frame_images("#myimg", face_ids, ts);
-				}
-				images_sequenece(face_ids, filename, frameCount, init);
+				})
+				canvas_images(images, frameCount, currentFrame, canvas, ts)
 			});
 
-			// Pass id
+			// pass id
 			$(function () {
-				var app_frame = new Array();
-				var filename = index => (
+				var images = new Array();
+				var canvas = document.getElementById("hero-lightpass");
+				canvas.width = 920;
+				canvas.height = 707;
+				var frameCount = 24;
+				const currentFrame = index => (
 					`ipos_images/images_sequenece/App-Video-Frams/${index.toString().padStart(0, '0')}.png`
-				)
-				const frameCount = 24;
-				var vdeo = document.querySelector("#pass-id");
-				function init() {
-					const SOUNDS = {
-						CAP: new Audio(
-							'https://s3-us-west-2.amazonaws.com/s.cdpn.io/605876/cap-gun.mp3'
-						),
+				);
+				var myText = " A Simple Workflow that can be Used with minimal or no training.";
+				var ts = gsap.timeline({
+					scrollTrigger: {
+						trigger: "#pass-id",
+						scrub: 1,
+						start: "top top",
+						end: "+=5000",
+						pin: true,
+						onUpdate: self => {
+							type(myText, self, "#workflow");
+						},
 					}
-					var myText = " A Simple Workflow that can be Used with minimal or no training.";
+				})
+				canvas_images(images, frameCount, currentFrame, canvas, ts)
+			});
+
+			// type of business
+			$(function () {
+				const boxes = gsap.utils.toArray('.type_Sec');
+				boxes.forEach((box, i) => {
+					var images = box.querySelector(".scale-new");
+					var text = box.querySelector(".opn");
 					var ts = gsap.timeline({
 						scrollTrigger: {
-							trigger: vdeo,
-							scrub: 0.5,
-							start: "top +=15%",
-							end: "+=5000 center",
+							trigger: box,
+							scrub: 1,
 							pin: true,
-							onUpdate: self => {
-								type(myText, self, "#workflow");
-							},
-
+							ease: "power4.easeInOut",
+							start: "top 5%",
+							end: "'+=200%",
 						}
-					});
-					frame_images(".pass-img", app_frame, ts)
-				}
-				images_sequenece(app_frame, filename, frameCount, init)
+					})
+					ts
+						.fromTo(images, {
+							scale: 2.3, y: -100, autoAlpha: 0
+						}, {
+							scale: 1, y: 0, autoAlpha: 1
+						})
+
+						.fromTo(text, {
+							y: 70, opacity: 0.01
+						}, {
+							y: 0, opacity: 1
+						})
+				});
+
 			});
+
 
 			// kitchne id
 			$(function () {
@@ -157,10 +203,9 @@ function Ipos() {
 					var ts = gsap.timeline({
 						scrollTrigger: {
 							trigger: kitchne,
-							scrub: 0.5,
-							markers: true,
+							scrub: 1,
 							start: "top top",
-							end: "+=4000 center",
+							end: "6000",
 							pin: true,
 							onUpdate: self => {
 								type(myText, self, ".k_break");
@@ -184,10 +229,8 @@ function Ipos() {
 					var ts = gsap.timeline({
 						scrollTrigger: {
 							trigger: part1,
-							scrub: 3,
-							markers: true,
-							start: "top top",
-							end: "+=3500",
+							scrub: 0.5,
+							start: "top 19%",
 							pin: true
 						}
 					});
@@ -208,10 +251,9 @@ function Ipos() {
 					var ts = gsap.timeline({
 						scrollTrigger: {
 							trigger: part2,
-							scrub: 3,
-							markers: true,
-							start: "top top",
-							end: "+=4000",
+							scrub: 1,
+							start: "top 15%",
+							end: "+=5000",
 							pin: true,
 							reverse: true
 						}
@@ -233,10 +275,9 @@ function Ipos() {
 					var ts = gsap.timeline({
 						scrollTrigger: {
 							trigger: introssss,
-							scrub: 3,
-							markers: true,
-							start: "top top",
-							end: "+=6000 bottom",
+							scrub: 1,
+							start: "top 8%",
+							end: "+=4500",
 							pin: true
 						}
 					});
@@ -257,8 +298,7 @@ function Ipos() {
 					var ts = gsap.timeline({
 						scrollTrigger: {
 							trigger: introssss,
-							scrub: 3,
-							markers: true,
+							scrub: 1,
 							start: "top top",
 							end: "+=4000",
 							pin: true,
@@ -269,7 +309,6 @@ function Ipos() {
 				}
 				images_sequenece(printer_2, filename, frameCount, init);
 			});
-
 
 			//eats_max
 			$(function () {
@@ -285,7 +324,6 @@ function Ipos() {
 						scrollTrigger: {
 							trigger: introsssss,
 							scrub: 1,
-							markers: true,
 							start: "top top",
 							end: "+=5500 center",
 							pin: true,
@@ -295,6 +333,7 @@ function Ipos() {
 							},
 						}
 					});
+					ts.fromTo(".p5p", { y: "60%", opacity: 0 }, { y: "0", opacity: 1 });
 					frame_images(".eats-max", eats_mob, ts)
 				}
 				images_sequenece(eats_mob, filename, frameCount, init);
@@ -314,11 +353,9 @@ function Ipos() {
 						scrollTrigger: {
 							trigger: introsssss,
 							scrub: 1,
-							markers: true,
-							start: "top top",
-							end: "+=600%",
+							start: "top 3%",
+							end: "+=4000",
 							pin: true,
-							reverse: true,
 							onUpdate: self => {
 								type(myText, self, ".eats_website");
 							},
@@ -343,11 +380,9 @@ function Ipos() {
 						scrollTrigger: {
 							trigger: customer_display,
 							scrub: 1,
-							markers: true,
-							start: "top top",
-							end: "+=600%",
+							start: "top 1%",
+							end: "+=4000",
 							pin: true,
-							reverse: true,
 							onUpdate: self => {
 								type(myText, self, ".cut_display_text");
 							},
@@ -370,12 +405,10 @@ function Ipos() {
 					var ts = gsap.timeline({
 						scrollTrigger: {
 							trigger: new_way,
-							scrub: 2,
-							markers: true,
-							start: "top top",
-							end: "+=500%",
+							scrub: 1,
 							pin: true,
-							reverse: true,
+							top: "top 20%",
+							end: "3000 bottom"
 						}
 					});
 					frame_images(".new_way", new_ways, ts)
@@ -398,7 +431,7 @@ function Ipos() {
 							scrub: 1,
 							markers: true,
 							start: "top top",
-							end: "+=650%",
+							end: "4500",
 							pin: true,
 							reverse: true,
 						}
@@ -421,11 +454,9 @@ function Ipos() {
 						scrollTrigger: {
 							trigger: payment,
 							scrub: 1,
-							markers: true,
-							start: "top top",
-							end: "+=620%",
+							start: "top",
+							end: "4000",
 							pin: true,
-							reverse: true,
 						}
 					});
 					frame_images(".mobile_payment_new", mobile_pay, ts)
@@ -451,29 +482,19 @@ function Ipos() {
 					var ts = gsap.timeline({
 						scrollTrigger: {
 							trigger: qr,
-							scrub: 0.5,
-							markers: true,
-							start: "top top",
-							end: "+=5000",
+							scrub: 1,
+							start: "top",
+							end: "4000",
 							pin: true,
 							onUpdate: self => {
 								type(myText, self, ".qr_text");
-							},
-
+							}
 						}
 					});
 					frame_images(".qr_code", qr_img, ts)
 				}
 				images_sequenece(qr_img, filename, frameCount, init);
 			});
-
-			$(window).on('resize', function () {
-				if (document_width != $(document).width() || document_height != $(document).height()) {
-					location.reload(1);
-				}
-			})
-
-
 		}
 		else {
 			var dwidth = $(window).width();
@@ -488,7 +509,8 @@ function Ipos() {
 		}
 	}
 	mediaSize();
-	window.addEventListener('resize load', mediaSize, false);
+	window.addEventListener('resize ', mediaSize, false);
+
 }
 
 const classList = document.querySelector(".main-content");

@@ -70,11 +70,11 @@ function Ipos() {
                         // new Scene 
                         frame_images(".station-img", station_img, tween);
                         var scene = new ScrollMagic.Scene({
-                            duration: "200%",
+                            duration: 3000,
                             triggerElement: intro,
                             triggerHook: 0.03,
-                        })
 
+                        })
                         // tween set
                         scene.setTween(tween)
                             .setPin(intro)
@@ -146,7 +146,7 @@ function Ipos() {
                         let myTextLength = myText.length;
 
                         var tween1 = new TimelineMax()
-                        frame_images("pass-img", app_frame, tween1)
+                        frame_images(".pass-img", app_frame, tween1)
 
                         var scene = new ScrollMagic.Scene({
                             duration: "200%",
@@ -484,7 +484,7 @@ function Ipos() {
                     images_sequenece(mobile_pay, filename, frameCount, init);
                 });
 
-                function t (){}
+                function t() { }
                 //qr code
                 $(function () {
                     var qr_img = new Array();
@@ -499,7 +499,7 @@ function Ipos() {
                         var tween = new TimelineMax()
                         frame_images(".qr_code", qr_img, tween)
                         var scene = new ScrollMagic.Scene({
-                            duration: "200%",
+                            duration: 4000,
                             triggerElement: qr,
                             triggerHook: 0.1,
                         })
@@ -513,7 +513,6 @@ function Ipos() {
                     }
                     images_sequenece(qr_img, filename, frameCount, init);
                 });
-
                 $(window).on('resize', function () {
                     if (document_width != $(document).width() || document_height != $(document).height()) {
                         location.reload(1);
@@ -531,10 +530,11 @@ function Ipos() {
                     location.reload(0)
                 }
             });
+
         };
     }
     mediaSize();
-    window.addEventListener('resize load', mediaSize, false);
+    window.addEventListener('resize', mediaSize, false);
 };
 
 const classList = document.querySelector(".main-content");

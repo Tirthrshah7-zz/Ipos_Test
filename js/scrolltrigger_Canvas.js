@@ -199,7 +199,7 @@ function Ipos() {
                         trigger: ".part-1",
                         scrub: 1,
                         start: "top 7%",
-                        end: "+=400%",
+                        end: "+=500%",
                         pin: true,
                     }
                 })

@@ -88,7 +88,7 @@ function Ipos() {
                     scrollTrigger: {
                         trigger: ".face-scanner",
                         scrub: 1,
-                        start: "top 6%",
+                        start: "top 1%",
                         end: "+=600%",
                         pin: true,
                         onUpdate: self => {
@@ -114,7 +114,7 @@ function Ipos() {
                     scrollTrigger: {
                         trigger: "#pass-id",
                         scrub: 1,
-                        start: "top 15%",
+                        start: "top 8%",
                         end: "+=500%",
                         pin: true,
                         onUpdate: self => {
@@ -197,7 +197,7 @@ function Ipos() {
                         trigger: ".part-1",
                         scrub: 1,
                         start: "top 7%",
-                        end: "+=500%",
+                        end: "+=550%",
                         pin: true,
                     }
                 })

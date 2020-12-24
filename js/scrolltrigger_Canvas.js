@@ -50,8 +50,6 @@ function Ipos() {
                 }
             }
 
-
-
             // station id
             $(function () {
                 var images = new Array();
@@ -276,8 +274,8 @@ function Ipos() {
             $(function () {
                 var images = new Array();
                 var canvas = document.getElementById("eats_max");
-                canvas.width = 480;
-                canvas.height = 740;
+                canvas.width = 370;
+                canvas.height = 635;
                 var frameCount = 57;
                 const currentFrame = index => (
                     `ipos_images/images_sequenece/eats_max/${index.toString().padStart(0, '0')}.png`
@@ -287,7 +285,7 @@ function Ipos() {
                     scrollTrigger: {
                         trigger: ".eats-max-sec",
                         scrub: 1,
-                        start: "top ",
+                        start: "top -2.5%",
                         end: "+=550%",
                         pin: true,
                         onUpdate: self => {
@@ -297,6 +295,7 @@ function Ipos() {
                 })
                 canvas_images(images, frameCount, currentFrame, canvas, ts)
                 ts.fromTo(".p5p", { y: "60%", opacity: 0 }, { y: "0", opacity: 1 });
+
             });
 
             // eats  website
@@ -304,7 +303,7 @@ function Ipos() {
                 var images = new Array();
                 var canvas = document.getElementById("eats_Website");
                 canvas.width = 1088;
-                canvas.height = 700;
+                canvas.height = 680;
                 var frameCount = 35;
                 const currentFrame = index => (
                     `ipos_images/images_sequenece/Eats Web/${index.toString().padStart(0, '0')}.png`
@@ -409,7 +408,7 @@ function Ipos() {
                     scrollTrigger: {
                         trigger: ".payment_mobile",
                         scrub: 1,
-                        start: "top ",
+                        start: "top -2%",
                         end: "+=600%",
                         pin: true,
                     }
